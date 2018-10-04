@@ -17,9 +17,11 @@ if (!process.env.NODE_ENV) {
 }
 
 let DBurl = {
-	development: "mongodb://localhost:27017/tumpukan-tumpah",
-	test: "mongodb://localhost:27017/tumpukan-tumpah_test",
-	production: `mongodb://${process.env.MONGODB_USER}:${process.env.MONGODB_PASS}@${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/golb-blog`
+	development: "mongodb://localhost:27017/catatan-emak",
+	test: "mongodb://localhost:27017/catatan-emak",
+	production: `mongodb://${process.env.MONGODB_USER}:${
+		process.env.MONGODB_PASS
+	}@${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/golb-blog`
 };
 
 mongoose.connect(
@@ -41,7 +43,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(function(err, req, res, next) {
-	console.log(err)
+	console.log(err);
 	res.status(err.status || 500).json({
 		message: err.message,
 		error: {}

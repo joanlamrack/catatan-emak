@@ -1,5 +1,8 @@
 const router = require("express").Router();
 const UserController = require("../controllers/userControllers");
+const ExpenseRoute = require("./expenses");
+
+router.use("/expenses", ExpenseRoute);
 
 router.get("/", function(req, res) {
 	res.send("Well This works");

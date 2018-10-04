@@ -23,13 +23,7 @@ let UserSchema = new Schema(
 			type: String,
 			required: true,
 			minlength: [8, "Password Length minimum 8"]
-		},
-		articles: [
-			{
-				type: Schema.Types.ObjectId,
-				ref: "Article"
-			}
-		]
+		}
 	},
 	{
 		timestamps: {

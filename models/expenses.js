@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const Authhelper = require("../helpers/authhelper");
 
 let ExpenseSchema = new Schema(
 	{
@@ -13,6 +12,10 @@ let ExpenseSchema = new Schema(
 			type: Number,
 			required: true,
 			min: [0, "Price can't be minus"]
+		},
+		owner: {
+			type: Schema.Types.ObjectId,
+			ref: "User"
 		}
 	},
 	{
@@ -40,4 +43,4 @@ let ExpenseSchema = new Schema(
 // 	}
 // });
 
-module.exports = mongoose.model("User", ExpenseSchema);
+module.exports = mongoose.model("Expense", ExpenseSchema);
