@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-let ExpenseSchema = new Schema(
+let ItemSchema = new Schema(
 	{
 		name: {
 			type: String,
@@ -12,6 +12,20 @@ let ExpenseSchema = new Schema(
 			type: Number,
 			required: true,
 			min: [0, "Price can't be minus"]
+		},
+		stock: {
+			amount: {
+				type: Number,
+				required: true,
+				default: 0,
+				min: 0
+			},
+			unit: {
+				type: String,
+				required: true,
+				enum: ["kg", "gram", "pack", "buah", "botol"],
+				default: "kg"
+			}
 		},
 		owner: {
 			type: Schema.Types.ObjectId,
@@ -26,4 +40,4 @@ let ExpenseSchema = new Schema(
 	}
 );
 
-module.exports = mongoose.model("Expense", ExpenseSchema);
+module.exports = mongoose.model("Item", ItemSchema);
