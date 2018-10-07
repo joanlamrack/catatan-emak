@@ -21,7 +21,7 @@ let DBurl = {
 	test: "mongodb://localhost:27017/catatan-emak",
 	production: `mongodb://${process.env.MONGODB_USER}:${
 		process.env.MONGODB_PASS
-	}@${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/golb-blog`
+	}@${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/catatan-emak`
 };
 
 mongoose.connect(
